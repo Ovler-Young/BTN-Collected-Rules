@@ -34,7 +34,7 @@ jobs:
         CH_HOST: ${{ secrets.CH_HOST }}
       run: |
         sudo tailscale up
-        sudo -E tailscale status --json
+        cat ~/tailscaled.log
         echo "Pinging ClickHouse host..."
         ping -c 4 $CH_HOST
         echo "Traceroute to ClickHouse host..."
