@@ -28,6 +28,7 @@ jobs:
       uses: tailscale/github-action@v2
       with:
         authkey: ${{ secrets.TS_AUTH_KEY }}
+        version: 1.70.0
 
     - name: Network Diagnostics
       env:
