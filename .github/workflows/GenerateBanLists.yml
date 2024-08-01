@@ -34,6 +34,7 @@ jobs:
       env:
         CH_HOST: ${{ secrets.CH_HOST }}
       run: |
+        tailscale up
         echo "Pinging ClickHouse host..."
         ping -c 4 $CH_HOST
         echo "Traceroute to ClickHouse host..."
