@@ -28,13 +28,13 @@ jobs:
       uses: tailscale/github-action@v2
       with:
         authkey: ${{ secrets.TS_AUTH_KEY }}
-        statedir: /tmp/tailscale-state/
 
     - name: Network Diagnostics
       env:
         CH_HOST: ${{ secrets.CH_HOST }}
       run: |
         sudo tailscale up
+        sudo -E tailscale status --json
         echo "Pinging ClickHouse host..."
         ping -c 4 $CH_HOST
         echo "Traceroute to ClickHouse host..."
