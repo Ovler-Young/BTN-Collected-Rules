@@ -17,9 +17,8 @@ jobs:
     - name: Tailscale
       uses: tailscale/github-action@v2
       with:
-        oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-        oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-        tags: tag:ci
+        authkey: ${{ secrets.TS_AUTH_KEY }}
+        statedir: /tmp/tailscale-state/
     - name: Run SQL query and generate lists
       env:
         CH_HOST: ${{ secrets.CH_HOST }}
